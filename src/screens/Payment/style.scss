@@ -1,0 +1,120 @@
+@mixin if-lessThan-768px{
+    @media (max-width: 768px){
+        @content;
+    }
+}
+.payment{
+    padding: 40px;
+    height: 100%;
+    @include if-lessThan-768px{
+        padding: 25px;
+    }
+    .fa{
+        font-size: 13px;
+        margin-right: 10px;
+         @include if-lessThan-768px{
+            font-size: 12px;
+        }
+    }
+    .payment__out{
+        display: flex;
+        align-items: center;
+        color: #656567;
+         @include if-lessThan-768px{
+            font-size: 12px;
+        }
+    }
+    .gridpayment{
+        display: grid;
+        height: 65vh;
+        grid-template-columns: 3fr 2fr 2fr;
+        grid-gap: 25px;
+        margin-top: 20px;
+        @include if-lessThan-768px{
+            grid-template-columns: 1fr;
+            grid-gap: 5px;
+            height: 100%;
+        }
+        .detailspayment{
+            grid-column: 1/3;
+            h1{
+                padding-bottom: -5px;
+                margin-bottom: 25px;
+                font-weight: bold;
+                color: #ff8a00;
+                font-size: 27px;
+                position: relative;
+                z-index: 1;
+                @include if-lessThan-768px{
+                    font-size: 20px;
+                }
+                &::after{
+                    position: absolute;
+                    content: ' ';
+                    width: 8em;
+                    height: 7px;
+                    background: #e9e9ec;
+                    left: 0;
+                    z-index: -1;
+                    bottom: 2px;
+                }
+            }
+            .servicepayment{
+                width: 85%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 20px;
+                margin-bottom: 65px;
+                    @include if-lessThan-768px{
+                    width: 100%;
+                        grid-gap: 5px;
+                }
+                .courir{
+                    height: 55px;
+                    display: grid;
+                    align-items: center;
+                    justify-items: center;
+                    border: 1px solid #999;
+                    cursor: pointer;
+                    position: relative;
+                    p{
+                        font-size: 13px;
+                        @include if-lessThan-768px{
+                            font-size: 10px;
+                        }
+                        
+                    }
+                }
+                    .active{
+                    border: 1px solid #19c874;
+                    background: #e5fce9;
+                    &::after{
+                        position: absolute;
+                        content: ' ';
+                        width: 10px;
+                        height: 5px;
+                        border-left: 2px solid #19c874;
+                        border-bottom: 2px solid #19c874;
+                        right: 10px;
+                        top: 5px;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+            .shipment{
+                @extend .servicepayment;
+                .courirship{
+                    @extend .courir
+                }
+                .activepay{
+                    @extend .active;
+                }
+            }
+        }
+        .paymentsummary{
+            height: 100%;
+            border-left: 2px solid #fff3e5;
+            padding-left: 20px;
+    }
+    }
+}
