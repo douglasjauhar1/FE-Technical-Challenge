@@ -105,7 +105,8 @@ export default {
     mounted(){
        this.$store.state.pricechose = 15000
        this.$store.state.totalcost = this.totalall + this.$store.state.pricechose
-       this.$store.state.courierchose = 'GO-SEND'
+    //    this.$store.state.courierchose = 'GO-SEND'
+       this.$store.commit('setCourir')
        this.$store.state.by = 'by'
        this.$store.state.shipment = 'shipment'
        this.$store.state.payment = 'e-Wallet'

@@ -91,6 +91,9 @@ export const store = new Vuex.Store({
         dayCome(state){
           state.daysCome = ''
         },
+        setCourir(state){
+          state.courierchose = ''
+        }
       },
     plugins: [createPersistedState()]
 })

@@ -39,7 +39,7 @@
           <div class="group" :class="{valid: valid.droname, notvalid: notvalid.droname}">
             <input type="text" required v-model="user.droname" @keyup="nameDropValid" spellcheck="false">
             <label>Dropshipper Name</label>
-            <p v-if="user.droname == ''">Required</p>
+           <p v-if="user.droname !='' && valid.droname==false">Name too short</p>
           </div>
           <div class="group" :class="{valid: valid.drophone, notvalid: notvalid.drophone}">
             <input type="text" required v-model="user.drophone" @keyup="phoneDropValid" spellcheck="false">
@@ -103,6 +103,7 @@ export default {
     isvalid(){
       return this.$store.state.isvalid;
     },
+    
   },
   methods: {
     isChecked(){
@@ -172,6 +173,9 @@ export default {
       },
     nameDropValid(){
     if(this.user.droname == ''){
+      this.valid.droname = false;
+      this.notvalid.droname = false
+    }if(this.user.droname <= 3){
       this.valid.droname = false;
       this.notvalid.droname = true
     }else{
