@@ -54,6 +54,7 @@ export const store = new Vuex.Store({
         ewalletsaldo: 1500000,
         estimate: '',
         dayestimate: ['today', '2 days', '1 day'],
+        daysCome : '',
         courierchose: '',
         courier: ['GO-SEND', 'JNE', 'Personal Courier'],
         courierprices: [15000, 9000, 29000],
@@ -82,6 +83,13 @@ export const store = new Vuex.Store({
         setPayment (state, priceChoice, courier){
           state.pricechose = priceChoice
           state.courierchose = courier
+        },
+        setEstimate(state){
+          state.estimate = ''
+          state.daysCome = ''
+        },
+        dayCome(state){
+          state.daysCome = ''
         },
       },
     plugins: [createPersistedState()]

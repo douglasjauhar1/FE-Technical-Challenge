@@ -40,10 +40,11 @@
     },
     computed:{
       estimate(){
-        return this.$store.state.estimate
+        // return this.$store.commit('setEstimate')
       },
       courierchose(){
-        return this.$store.state.courierchose
+        // return this.$store.state.courierchose
+          return this.$store.commit('dayCome', 'click')
       }
     },
     methods: {
